@@ -1,23 +1,33 @@
 
 <template>
     <p> =============== Home ================ </p>
-    <d3-network ref='net' :net-nodes="nodes" :net-links="links" :options="options" />
+      
+    <d3-network 
+      ref='net' 
+      :net-nodes="nodes" 
+      :net-links="links" 
+      :options="options"
+      :nodeSym="nodeSym"
+    />
+    
 </template>
 
 <script>
+import tempSVG from '../assets/svgs/android.svg';
+
 export default {
     data () {
     return {
       nodes: [
-        { id: 1, name: 'my awesome node 1'},
-        { id: 2, name: 'my node 2'},
-        { id: 3, name:'orange node', _color: 'orange' },
-        { id: 4, _color: '#4466ff'},
-        { id: 5 },
-        { id: 6 },
-        { id: 7 },
-        { id: 8 },
-        { id: 9 }
+        { id: 1, name: 'A0' },
+        { id: 2, name: 'A1' },
+        { id: 3, name: 'A2' },
+        { id: 4, name: 'A3' },
+        { id: 5, name: 'A4' },
+        { id: 6, name: 'A5' },
+        { id: 7, name: 'A6' },
+        { id: 8, name: 'A7' },
+        { id: 9, name: 'A8' }
       ],
       links: [
         { sid: 1, tid: 2, _color: 'orange' },
@@ -30,8 +40,9 @@ export default {
         { sid: 3, tid: 8, _color: 'orange' },
         { sid: 7, tid: 9, _color: 'orange' }
       ],
-      nodeSize: 20,
-      canvas: false
+      nodeSize: 32,
+      canvas: false,
+      nodeSym: tempSVG,
     }
   },
   computed:{
@@ -44,6 +55,11 @@ export default {
         linkLabels:true,
         canvas: this.canvas
       }
+    }
+  },
+  methods: {
+    getSVGSymbol(node) {
+      return node.svgSym ? `<svg>${node.svgSym}</svg>` : '';
     }
   }
 };
