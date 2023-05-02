@@ -12,7 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->string('icon');
+            $table->string('color');
             $table->string('author');
+            $table->string('authorPic'); //this authors be their own table ... I could use them in summaries later on, if I create ones ...
             $table->string('link');
             $table->timestamps();
         });

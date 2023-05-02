@@ -1,5 +1,6 @@
 import Home from '../components/Home.vue';
 import About from '../components/About.vue';
+import MapList from '../components/MapList.vue';
 
  export default [
     {
@@ -9,6 +10,10 @@ import About from '../components/About.vue';
     {
         path: '/about',
         component: About,
+    },
+    {
+        path: '/map-list',
+        component: MapList,
     },
 ];
 

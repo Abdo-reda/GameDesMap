@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import tempSVG from '../assets/svgs/android.svg';
+import tempSVG from '../assets/svgs/android.js';
 
 export default {
     data () {

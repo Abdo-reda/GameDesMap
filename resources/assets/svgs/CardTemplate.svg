@@ -1,0 +1,31 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1A1A1A;}
+	.st1{font-family:'MS-UIGothic';}
+	.st2{font-size:34px;}
+	.st3{fill:#662D91;}
+	.st4{fill:none;stroke:#808080;stroke-miterlimit:10;}
+	.st5{fill:#D9E021;}
+	.st6{font-size:24px;}
+</style>
+<g>
+	<path d="M1108,259c11.58,0,21,9.42,21,21v376c0,11.58-9.42,21-21,21H792c-11.58,0-21-9.42-21-21V280c0-11.58,9.42-21,21-21H1108
+		 M1108,258H792c-12.15,0-22,9.85-22,22v376c0,12.15,9.85,22,22,22h316c12.15,0,22-9.85,22-22V280C1130,267.85,1120.15,258,1108,258
+		L1108,258z"/>
+</g>
+<text transform="matrix(1 0 0 1 886.1162 303.5741)" class="st0 st1 st2">The Title</text>
+<g>
+	<polygon class="st3" points="816.5,270.29 822.99,284.11 837.5,286.33 827,297.09 829.48,312.29 816.5,305.11 803.52,312.29 
+		806,297.09 795.5,286.33 810.01,284.11 	"/>
+</g>
+<line class="st4" x1="770" y1="328" x2="1130" y2="328"/>
+<g>
+	<path class="st5" d="M1062.45,258.5H1108c11.86,0,21.5,9.65,21.5,21.5v30.97L1062.45,258.5z"/>
+	<path d="M1108,259c11.58,0,21,9.42,21,21v18v11.95L1063.9,259h32.1H1108 M1108,258h-12c-12.15,0-27,0-35,0l69,54c0-10,0-1.85,0-14
+		v-18C1130,267.85,1120.15,258,1108,258L1108,258z"/>
+</g>
+<text transform="matrix(1 0 0 1 781.9998 447.0723)" class="st0 st1 st6">Description:</text>
+<text transform="matrix(1 0 0 1 781.9999 540.4591)" class="st0 st1 st6">SubTopics</text>
+<text transform="matrix(1 0 0 1 906.8939 383.4591)" class="st0 st1 st6">“Quote”</text>
+</svg>
