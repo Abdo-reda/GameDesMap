@@ -20,10 +20,15 @@ class MapController extends Controller
         return response()->json($map->toArray());
     }
 
-
-    public function update(Map $map, $request): JsonResponse
+    public function store(Map $map): JsonResponse
     {
         return response()->json('updating ...');
+    }
+
+    public function update(Map $map, Request $request): JsonResponse //I should validate the request, make sure name is string and so on ...
+    {
+        $map->update($request->all());
+        return response()->json($map->toArray()); //return the correct status response
     }
 
     public function destory(Map $map): Response
@@ -32,3 +37,12 @@ class MapController extends Controller
         return response()->noContent();
     }
 }
+
+/*
+GET           /users                      index   users.index
+POST          /users                      store   users.store
+GET           /users/{user}               show    users.show
+PUT|PATCH     /users/{user}               update  users.update
+DELETE        /users/{user}               destroy users.destroy
+
+*/
