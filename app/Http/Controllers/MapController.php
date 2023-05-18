@@ -20,9 +20,10 @@ class MapController extends Controller
         return response()->json($map->toArray());
     }
 
-    public function store(Map $map): JsonResponse
+    public function store(Request $request): JsonResponse
     {
-        return response()->json('updating ...');
+        $map = MAP::create($request->all());
+        return response()->json($map->toArray(), Response::HTTP_CREATED);
     }
 
     public function update(Map $map, Request $request): JsonResponse //I should validate the request, make sure name is string and so on ...
@@ -31,7 +32,7 @@ class MapController extends Controller
         return response()->json($map->toArray()); //return the correct status response
     }
 
-    public function destory(Map $map): Response
+    public function destroy(Map $map): Response
     {
         $map->delete();
         return response()->noContent();

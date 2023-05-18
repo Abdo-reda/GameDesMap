@@ -2,6 +2,9 @@
 <template>
     <div v-if="!isEditable">
         <div class="p-6 max-w-4xl h-fit mx-auto my-10 bg-white rounded-xl shadow-lg"> 
+            <div class="m-0 p-1 rounded-md float-right hover:cursor-pointer transition duration-100 ease-in-out hover:shadow-lg dark:hover:shadow-black/30" @click="deleteMap">
+                <object type="image/svg+xml" :data="deleteSVG"  class="h-8 w-8 pointer-events-none"></object>
+            </div>
             <div class="m-0 p-1 rounded-md float-right hover:cursor-pointer transition duration-100 ease-in-out hover:shadow-lg dark:hover:shadow-black/30" @click="isEditable = !isEditable">
                 <object type="image/svg+xml" :data="editSVG"  class="h-8 w-8 pointer-events-none"></object>
             </div>
@@ -17,7 +20,7 @@
                 </div>
                 <div class="p-3 items-center w-1/5">
                     <img class="" :src="authorPic" alt=""/>
-                    <p class=""> {{author}}</p>
+                    <p class="italic text-center"> {{author}}</p>
                 </div>
             </div> 
         </div>
@@ -34,15 +37,15 @@
                 <div class="p-3 w-4/5">
                 <div class="p-3 m-0 flex items-center space-x-4">
                     <svg class="h-20 w-20">  <circle cx="50%" cy="50%" r="50%" fill="red" /> </svg>
-                    <input v-model="updatedName" class="m-0 p-2 text-4xl font-medium text-black" :placeholder="name" />
+                    <input v-model="name" class="m-0 p-2 text-4xl leading-normal font-medium text-gray-500" :placeholder="name" />
                 </div>
                 <div>
-                    <textarea v-model="updatedDesc" :placeholder="description"> </textarea>
+                    <textarea v-model="description" :placeholder="description" class="w-full text-gray-500 p-2"> </textarea>
                 </div>
                 </div>
                 <div class="p-3 items-center w-1/5">
                     <img class="" :src="authorPic" alt=""/>
-                    <input v-model="updatedAuthor" :placeholder="author" />
+                    <input v-model="author" :placeholder="author" class="text-gray-500 p-1"/>
                 </div>
             </div> 
         </div>
@@ -63,7 +66,9 @@
 <script>
 import editSVG from '../assets/svgs/edit.svg';
 import checkSVG from '../assets/svgs/check.svg';
+import deleteSVG from '../assets/svgs/delete.svg'
 import apiService from '../js/apiService';
+
 
 /*
 
@@ -77,29 +82,34 @@ export default {
         return {
             editSVG,
             checkSVG,
+            deleteSVG,
             isEditable: false,
-            updatedName: "",
-            updatedDesc: "",
-            updatedAuthor: "",
+            name: this.propName,
+            description: this.propDescription,
+            authorPic: this.propAuthorPic,
+            author: this.propAuthor,
         };
     },
     props: {
         id: Number,
-        name: String,
-        description: String,
-        authorPic: String,
-        author: String,
+        propName: String,
+        propDescription: String,
+        propAuthorPic: String,
+        propAuthor: String,
     },
     methods: {
         async submit(){
-            console.log("submitting");
             let res = await apiService.updateMap(this.id, {
-                name: this.updatedName,
-                description: this.updatedDesc,
-                author: this.updatedAuthor,
+                name: this.name,
+                description: this.description,
+                author: this.author,
             });
-            console.log(res);
             this.isEditable = !this.isEditable;
+        },
+        async deleteMap(){
+            //this.$emit('delete-map', this.id);
+            await apiService.deleteMap(this.id);
+            this.$emit('update-map-list');
         },
     }
 };

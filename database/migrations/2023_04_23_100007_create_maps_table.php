@@ -10,13 +10,13 @@ return new class extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->string('icon');
-            $table->string('color');
-            $table->string('author');
-            $table->string('authorPic'); //this authors be their own table ... I could use them in summaries later on, if I create ones ...
-            $table->string('link');
+            $table->string('name')->default('default_map_name');
+            $table->string('description', 8192)->default('default_description');
+            $table->string('icon')->default('');
+            $table->string('color')->default('');
+            $table->string('author')->default('default_author');
+            $table->string('authorPic')->default(''); //this authors be their own table ... I could use them in summaries later on, if I create ones ...
+            //I should add a boolean whether its done or not ... or a progress integer or float
             $table->timestamps();
         });
     }
